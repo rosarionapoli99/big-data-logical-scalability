@@ -247,13 +247,6 @@ python plot_queries.py
 python plot_comparison.py
 ```
 
-### Calculate Semantic Richness (SRKG)
-
-```bash
-python semantic_richness_calculation.py
-```
-
----
 
 ## 📈 Results
 
