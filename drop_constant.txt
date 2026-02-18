@@ -1,0 +1,70 @@
+MATCH (n:Case)        CREATE (m:Case)        SET m = properties(n), m.id = n.id + "_copy", m.original_id = n.id;
+MATCH (n:Drug)        CREATE (m:Drug)        SET m = properties(n), m.id = n.id + "_copy", m.original_id = n.id;
+MATCH (n:AgeGroup)    CREATE (m:AgeGroup)    SET m = properties(n), m.id = n.id + "_copy", m.original_id = n.id;
+MATCH (n:Outcome)     CREATE (m:Outcome)     SET m = properties(n), m.id = n.id + "_copy", m.original_id = n.id;
+MATCH (n:ReportSource)CREATE (m:ReportSource)SET m = properties(n), m.id = n.id + "_copy", m.original_id = n.id;
+MATCH (n:Therapy)     CREATE (m:Therapy)     SET m = properties(n), m.id = n.id + "_copy", m.original_id = n.id;
+MATCH (n:Manufacturer)CREATE (m:Manufacturer)SET m = properties(n), m.id = n.id + "_copy", m.original_id = n.id;
+MATCH (n:Reaction)    CREATE (m:Reaction)    SET m = properties(n), m.id = n.id + "_copy", m.original_id = n.id;
+
+
+// Nel tuo grafo/immagine le principali relazioni sono queste (aggiungi altre se ne trovi):
+MATCH (a:Case)-[r:IS_PRIMARY_SUSPECT]->(b:Drug)      
+  MATCH (copy_a:Case {original_id: a.id}) MATCH (copy_b:Drug {original_id: b.id})
+  CREATE (copy_a)-[copy_r:IS_PRIMARY_SUSPECT]->(copy_b) 
+  SET copy_r = properties(r), copy_r.id = r.id + "_copy", copy_r.original_id = r.id;
+
+MATCH (a:Case)-[r:IS_SECONDARY_SUSPECT]->(b:Drug)
+  MATCH (copy_a:Case {original_id: a.id}) MATCH (copy_b:Drug {original_id: b.id}) 
+  CREATE (copy_a)-[copy_r:IS_SECONDARY_SUSPECT]->(copy_b) 
+  SET copy_r = properties(r), copy_r.id = r.id + "_copy", copy_r.original_id = r.id;
+
+MATCH (a:Case)-[r:FALLS_UNDER]->(b:AgeGroup)
+  MATCH (copy_a:Case {original_id: a.id}) MATCH (copy_b:AgeGroup {original_id: b.id})
+  CREATE (copy_a)-[copy_r:FALLS_UNDER]->(copy_b)
+  SET copy_r = properties(r), copy_r.id = r.id + "_copy", copy_r.original_id = r.id;
+
+MATCH (a:Case)-[r:REPORTED_BY]->(b:ReportSource)
+  MATCH (copy_a:Case {original_id: a.id}) MATCH (copy_b:ReportSource {original_id: b.id})
+  CREATE (copy_a)-[copy_r:REPORTED_BY]->(copy_b)
+  SET copy_r = properties(r), copy_r.id = r.id + "_copy", copy_r.original_id = r.id;
+
+MATCH (a:Case)-[r:RESULTED_IN]->(b:Outcome)
+  MATCH (copy_a:Case {original_id: a.id}) MATCH (copy_b:Outcome {original_id: b.id})
+  CREATE (copy_a)-[copy_r:RESULTED_IN]->(copy_b)
+  SET copy_r = properties(r), copy_r.id = r.id + "_copy", copy_r.original_id = r.id;
+
+MATCH (a:Case)-[r:HAS_INTERACTION]->(b:Reaction)
+  MATCH (copy_a:Case {original_id: a.id}) MATCH (copy_b:Reaction {original_id: b.id})
+  CREATE (copy_a)-[copy_r:HAS_INTERACTION]->(copy_b)
+  SET copy_r = properties(r), copy_r.id = r.id + "_copy", copy_r.original_id = r.id;
+
+MATCH (a:Case)-[r:REGISTERED]->(b:Manufacturer)
+  MATCH (copy_a:Case {original_id: a.id}) MATCH (copy_b:Manufacturer {original_id: b.id})
+  CREATE (copy_a)-[copy_r:REGISTERED]->(copy_b)
+  SET copy_r = properties(r), copy_r.id = r.id + "_copy", copy_r.original_id = r.id;
+
+MATCH (a:Therapy)-[r:PRESCRIBED]->(b:Drug)
+  MATCH (copy_a:Therapy {original_id: a.id}) MATCH (copy_b:Drug {original_id: b.id})
+  CREATE (copy_a)-[copy_r:PRESCRIBED]->(copy_b)
+  SET copy_r = properties(r), copy_r.id = r.id + "_copy", copy_r.original_id = r.id;
+
+MATCH (a:Case)-[r:RECEIVED]->(b:Therapy)
+  MATCH (copy_a:Case {original_id: a.id}) MATCH (copy_b:Therapy {original_id: b.id})
+  CREATE (copy_a)-[copy_r:RECEIVED]->(copy_b)
+  SET copy_r = properties(r), copy_r.id = r.id + "_copy", copy_r.original_id = r.id;
+
+MATCH (a:Drug)-[r:IS_INTERACTING]->(b:Drug)
+  MATCH (copy_a:Drug {original_id: a.id}) MATCH (copy_b:Drug {original_id: b.id})
+  CREATE (copy_a)-[copy_r:IS_INTERACTING]->(copy_b)
+  SET copy_r = properties(r), copy_r.id = r.id + "_copy", copy_r.original_id = r.id;
+
+MATCH (a:Drug)-[r:IS_CONCOMITANT]->(b:Drug)
+  MATCH (copy_a:Drug {original_id: a.id}) MATCH (copy_b:Drug {original_id: b.id})
+  CREATE (copy_a)-[copy_r:IS_CONCOMITANT]->(copy_b)
+  SET copy_r = properties(r), copy_r.id = r.id + "_copy", copy_r.original_id = r.id;
+
+// ...aggiungi altre relazioni dallo schema se necessario!
+
+// Verifica quanti cloni sono stati creati
+MATCH (n) RETURN labels(n)[0], count(n);

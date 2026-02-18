@@ -1,0 +1,6 @@
+_id,properties
+4:a4ea6acb-b5fc-4a33-a21a-e4f10b877c39:142,"{""closeness"": 0.9518693596905887, ""class_id"": 7, ""degree"": 0.0, ""classe"": 7, ""pagerank"": 31.229006395505426, ""betweenness"": 0.0, ""eigenvector"": 0.1307724555311571, ""ageGroup"": ""Adult""}"
+4:a4ea6acb-b5fc-4a33-a21a-e4f10b877c39:143,"{""closeness"": 0.9533300923675255, ""class_id"": 7, ""degree"": 0.0, ""classe"": 7, ""pagerank"": 26.791082171128753, ""betweenness"": 0.0, ""eigenvector"": 0.11597272012912391, ""ageGroup"": ""Elderly""}"
+4:a4ea6acb-b5fc-4a33-a21a-e4f10b877c39:144,"{""closeness"": 0.8784722222222222, ""class_id"": 7, ""degree"": 0.0, ""classe"": 7, ""pagerank"": 3.307455216790966, ""betweenness"": 0.0, ""eigenvector"": 0.013556063796559574, ""ageGroup"": ""Adolescent""}"
+4:a4ea6acb-b5fc-4a33-a21a-e4f10b877c39:281,"{""closeness"": 0.8344370860927153, ""class_id"": 7, ""degree"": 0.0, ""classe"": 7, ""pagerank"": 1.5407122751277698, ""betweenness"": 0.0, ""eigenvector"": 0.00628056361992934, ""ageGroup"": ""Child""}"
+4:a4ea6acb-b5fc-4a33-a21a-e4f10b877c39:415,"{""closeness"": 0.7941176470588235, ""class_id"": 7, ""degree"": 0.0, ""classe"": 7, ""pagerank"": 0.3966213488117194, ""betweenness"": 0.0, ""eigenvector"": 0.0012436788822622357, ""ageGroup"": ""Infant""}"

@@ -1,0 +1,10 @@
+# Core dependencies
+neo4j>=5.0.0
+pymongo>=4.0.0
+python-arango>=7.0.0
+
+# Data analysis & visualization
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+scipy>=1.10.0

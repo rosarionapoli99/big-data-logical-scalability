@@ -1,0 +1,2 @@
+_id,from_id,to_id,properties
+5:a4ea6acb-b5fc-4a33-a21a-e4f10b877c39:54290,4:a4ea6acb-b5fc-4a33-a21a-e4f10b877c39:3452,4:a4ea6acb-b5fc-4a33-a21a-e4f10b877c39:9365,"{""doseUnit"": ""MG"", ""route"": ""Unknown"", ""doseAmount"": ""20"", ""indication"": ""Blood cholesterol increased"", ""drugSequence"": ""2""}"
