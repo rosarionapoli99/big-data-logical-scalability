@@ -132,7 +132,6 @@ big-data-logical-scalability/
 │
 ├── plot_queries.py                 # 📊 Per-dataset-size bar charts
 ├── plot_comparison.py              # 📈 Cross-size scaling comparison (log scale)
-├── semantic_richness_calculation.py # 🧮 SRKG semantic richness metric
 │
 ├── dbms_converter/
 │   ├── dataset_duplicator.py       # 🔄 Dataset scaling via node/edge cloning
