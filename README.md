@@ -68,17 +68,9 @@ flowchart LR
 
 The benchmark uses a **B2B (Business-to-Business) transaction graph** modeled as a knowledge graph with companies and their financial transactions:
 
-```mermaid
-graph TD
-    Azienda((Azienda))
-    TransazioneB2B((TransazioneB2B))
-
-    TransazioneB2B -->|EMESSA_DA_AZIENDA| Azienda
-    TransazioneB2B -->|DESTINATA_AD_AZIENDA| Azienda
-
-    style Azienda fill:#4A90D9,color:#fff
-    style TransazioneB2B fill:#E74C3C,color:#fff
-```
+<p align="center">
+  <img src="neo4j_schema.png" alt="B2B Transaction Graph Schema" width="700">
+</p>
 
 > **Node types**: `Azienda` (Company), `TransazioneB2B` (B2B Transaction)  
 > **Relationship types**: `EMESSA_DA_AZIENDA` (issued by), `DESTINATA_AD_AZIENDA` (sent to)  
@@ -274,20 +266,6 @@ After running the benchmark, plots are generated in the `results/` directory:
 | `queryN_comparison_cold_log.png` | Cross-size scaling (log scale) |
 
 > **Key Findings**: Graph databases (Neo4j, ArangoDB) excel at multi-hop traversals (Q3, Q4), while MongoDB performs competitively on scan-heavy workloads (Q1) due to its optimized document scanning engine.
-
----
-
-## 🧮 Semantic Richness Metric
-
-The **SRKG (Semantic Richness of Knowledge Graphs)** metric quantifies the structural complexity of the knowledge graph:
-
-$$SRKG = \alpha \cdot D_{types} + \beta \cdot H_C + \gamma \cdot H_R$$
-
-Where:
-- **D_types** = Diversity of node and relationship types (log-based)
-- **H_C** = Shannon entropy of node type distribution
-- **H_R** = Shannon entropy of relationship type distribution
-- **α, β, γ** = Weighting parameters (default: 1)
 
 ---
 
