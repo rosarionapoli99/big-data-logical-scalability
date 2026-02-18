@@ -285,6 +285,3 @@ For questions, suggestions, or collaboration opportunities, please open an [issu
 
 ---
 
-<p align="center">
-  Made with ❤️ for Big Data Research
-</p>
